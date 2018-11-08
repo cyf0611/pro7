@@ -1,0 +1,186 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>在线订购 - 彰德府络康正骨通</title>
+    <script type="text/javascript" src="wfjq.js" tppabs="http://ww.healthygoods.cn/wforder/wfpublic/js/wfjq.js"></script>
+    <script type="text/javascript" src="layui.js" tppabs="http://ww.healthygoods.cn/wforder/wfpublic/layui/layui.js"></script>
+    <script type="text/javascript" src="wfjqcity.js" tppabs="http://ww.healthygoods.cn/wforder/wfpublic/js/wfjqcity.js"></script>
+    <script type="text/javascript">
+    $("document").ready(function() {
+        $(".size a").click(function() {
+            var o = $(this);
+            if (!o.hasClass("cursize")) {
+                $(".cursize").removeClass("cursize");
+                o.addClass("cursize");
+                $("#wfprosize").val(o.attr("data-size"));
+            }
+        });
+        $(".colour a").click(function() {
+            var o = $(this);
+            if (!o.hasClass("curcolour")) {
+                $(".curcolour").removeClass("curcolour");
+                o.addClass("curcolour");
+                $("#wfprocolour").val(o.attr("data-colour"));
+            }
+        });
+    });
+    </script>
+    <link href="style.css" tppabs="http://ww.healthygoods.cn/wforder/wftemplate/weixin/images/style.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    .wforder {
+        max-width: 950px;
+    }
+
+    .wftitle {
+        background: #FF9900;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wforder">
+        <form id="wfform" action="http://47.104.155.229:9999/dopost" method="post" class="wfform" onsubmit="return check()">
+            <input type="text" name="pId" id="pId" class="input-text" style="display: none;" value='6'>
+            <div class="wftitle">在线快速订购</div>
+            <!---------- 订购产品 ---------->
+            <div class="wfwrap">
+                <div class="wfwrapbox">
+                    <!---------- 产品套餐 ---------->
+                    <div class="wfform-box">
+                        <label class="wfform-label">订购产品</label>
+                        <div class="wfform-pro radio">
+                            <span class="down">
+                            	<input type="radio" name="describe" id="wfproduct1" checked onclick="total('down')" value="体验装 一盒 138元" title="138" class="input-radio">
+                            	<label for="wfproduct1">体验装 一盒 138元</label>
+                            </span>
+                            <span class="down">
+                            	<input type="radio" name="describe" id="wfproduct2" onclick="total('down')" value="周期装 三盒 276元" title="276" class="input-radio">
+                            	<label for="wfproduct2">周期装 三盒 276元</label>
+                            </span>
+                            <span class="down">
+                            	<input type="radio" name="describe" id="wfproduct3" onclick="total('down')" value="加强装 五盒 414元" title="414" class="input-radio">
+                            	<label for="wfproduct3">加强装 五盒 414元</label>
+                            </span> 
+                        </div>
+                    </div>
+                    <!---------- 产品套餐 ---------->
+                </div>
+            </div>
+            <!---------- 订购产品 ---------->
+            <!---------- 赠送产品 ---------->
+            <!---------- 赠送产品 ---------->
+            <!---------- 表单主体 ---------->
+            <div class="wfwrap">
+                <div class="wfwrapbox pt15">
+                    <!---------- 表单选项 ---------->
+                    <div class="wfform-box">
+                        <label class="wfform-label">姓名</label>
+                        <div class="wfform-opt">
+                            <input type="text" name="name" id="wfname" lay-verify="name" placeholder="请填写姓名" class="input-text">
+                        </div>
+                    </div>
+                    <div class="wfform-box">
+                        <label class="wfform-label">手机号码</label>
+                        <div class="wfform-opt">
+                            <input type="text" name="tel" id="wfmob" lay-verify="mob" placeholder="请填写手机号码" class="input-text">
+                        </div>
+                    </div>
+                    <div class="wfform-box">
+                        <label class="wfform-label">所在地区</label>
+                        <div class="wfform-opt area">
+                            <span class="wfprovince">
+                            	<select id="wfprovince" name="wfprovince" lay-verify="province" class="select">
+                            	</select>
+                            </span>
+                            <span class="wfcity">
+                            	<select id="wfcity" name="wfcity" lay-verify="city" class="select">
+                            	</select>
+                            </span>
+                            <span class="wfarea">
+                            	<select id="wfarea" name="wfarea" class="select"></select>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="wfform-box">
+                        <label class="wfform-label">详细地址</label>
+                        <div class="wfform-opt">
+                            <input type="text" name="wfaddress" id="wfaddress" lay-verify="address" placeholder="请填写详细地址及相关备注" class="input-text">
+                        </div>
+                    </div>
+                    <!---------- 表单选项 ---------->
+                    <!---------- 付款方式 ---------->
+                    <div class="wfform-box">
+                        <label class="wfform-label">付款方式</label>
+                        <div class="wfform-pro radio">
+                            <span class="auto"><input type="radio" checked id="wfpayment1" onclick="pay_total(1);paypstab(1)" value="cod" class="input-radio"><label for="wfpayment1">货到付款</label></span>
+                        </div>
+                    </div>
+                    <!---------- 付款方式 ---------->
+                    <!---------- 验证码 ---------->
+                    <!---------- 验证码 ---------->
+                </div>
+            </div>
+            <!---------- 表单主体 ---------->
+            <div class="wfwrap">
+                <div class="wfform-box">
+                    <button id="wfsubmit" class="wfbtn btn-g">立即提交订单</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<script type="text/javascript" src="wfpost.js"></script>
+<script>
+	
+function check(){
+	var mobreg=/^[1][3,4,5,7,8,6][0-9]{9}$/;  
+	
+	if(!mobreg.test($('#wfmob').val())){  
+	    //验证手机号为11位
+	    alert("您的手机号码不正确哦！")
+	    $('#wfmob').focus();
+	    return false;
+	}
+
+	if($('#wfname').val()==''){
+		alert("姓名不能为空！");
+		$('#wfname').focus();
+		return false;
+	}
+
+	if($('#wfprovince option:selected').text()=='请选择省' || $('#wfcity option:selected').text()=='请选择市'){
+		alert("地址不能为空！");
+		return false;
+	}
+
+	if($('#wfaddress').val()==''){
+		alert("详细地址不能为空！");
+		$('#wfaddress').focus();
+		return false;
+	}
+}
+
+	// $('#wfsubmit').on('click',function() {
+	// 	$.post("http://127.0.0.1:9999/dopost", { //             
+ //            submitTime: Date.parse(new Date()),
+ //            describe: $("input[type='radio']:checked").val(),
+ //            name: $('#name').val(),
+ //            tel: $('#wfmob').val(),
+ //            province: $('#wfprovince option:selected').text(),
+ //            city: $('#wfcity option:selected').text(),
+ //            area: $('#wfarea option:selected').text(),
+ //            address: $('#address').val(),
+ //        },
+ //        function(data, status) {
+ //            //alert("数据：" + data + "\n状态：" + status);
+ //        });
+	// })
+	
+    
+</script>
+</body>
+
+</html>

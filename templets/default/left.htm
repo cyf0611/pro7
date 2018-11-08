@@ -1,0 +1,28 @@
+<div class="leftbar">
+  <div class="leftMenu">
+    <h3>{dede:field name='typeid' function="GetTopTypename(@me)"/}</h3>
+    <ul class="submenu" id="subnav">
+      {dede:channel type='son' currentstyle="
+      <li><a href='~typelink~' class='thisclass'>~typename~</a></li>
+      "}
+      <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
+      {/dede:channel}
+    </ul>
+  </div>
+  <div class="leftContact">
+    <div class="left_box">
+      <h4>联系我们</h4>
+      <div class="left-contact">
+        <div class="desc">
+          <p class="MsoNormal"> {dede:global.cfg_webname/} </p>
+          <p class="MsoNormal"> 全国服务热线 ： </p>
+          <p class="MsoNormal"> &nbsp;{dede:global.cfg_tel/} </p>
+          <p class="MsoNormal"> 公司邮箱： </p>
+          <p class="MsoNormal"> &nbsp;{dede:global.cfg_email/} </p>
+          <p class="MsoNormal"> 公司地址：{dede:global.cfg_add/} </p>
+          <p> <img src="/skin/images/wx.png" alt="" width="200" height="200" title="" align="" /> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

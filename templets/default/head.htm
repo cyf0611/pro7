@@ -1,0 +1,87 @@
+<!--<audio src="/skin/images/music.mp3" autoplay="autoplay" loop></audio>-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c4cbd5f873ada50b6059175eb5b8f461";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<header>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#subMenu"> <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars fa-2x"></i> </button>
+    <div class="logo" style="background:url(/skin/images/logo.png) no-repeat center center"> </div>
+  </div>
+  <div class="nav_part">
+    <div class="container">
+      <nav id="main_nav" >
+        <ul class="nav navbar-nav">
+          <li {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='current' ":@me="";{/dede:field}><a class="first-level" href='/'>网站首页</a></li>
+          {dede:channelartlist typeid='1,4,7' currentstyle='current'}
+          <li class='{dede:field.currentstyle/}'><a class="first-level" href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}<span class="downward"></span></a>
+            <ul class="drop-menu">
+              {dede:channel type='son' noself='yes'}
+              <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
+              {/dede:channel}
+            </ul>
+          </li>
+          {/dede:channelartlist}
+          
+          
+          {dede:channelartlist typeid='11,14,15,16' currentstyle='current'}
+          <li class='{dede:field.currentstyle/}'><a class="first-level" href='{dede:field name='typeurl'/}'>{dede:field name='typename'/}<span class="downward"></span></a>
+            <ul class="drop-menu">
+              {dede:channel type='son' noself='yes'}
+              <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
+              {/dede:channel}
+            </ul>
+          </li>
+          {/dede:channelartlist}
+        </ul>
+      </nav>
+      <div class="clear"></div>
+      <div class="mobile">
+        <nav  id="subMenu" class="collapse navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li><a href='/'><strong>网站首页</strong></a></li>
+            {dede:channelartlist typeid='top'}
+            <li><a {dede:field name=typeid runphp="yes"}
+global $dsql;
+$sql = "SELECT id From `#@__arctype` WHERE reid='@me' And ishidden<>1 order by sortrank asc limit 0, 100 ";
+$row = $dsql->GetOne($sql);
+              @me=is_array($row)?'href="javascript:void(0);"':'';
+              {/dede:field} href="{dede:field name='typeurl'/}"><strong>{dede:field name='typename'/}</strong> <i {dede:field name=typeid runphp="yes"}
+global $dsql;
+$sql = "SELECT id From `#@__arctype` WHERE reid='@me' And ishidden<>1 order by sortrank asc limit 0, 100 ";
+$row = $dsql->GetOne($sql);
+              @me=is_array($row)?'class="fa fa-sort-up"':'style="display:none"';
+              {/dede:field}
+              > </i> </a>
+              <ul class='dropdown'>
+                {dede:channel type='son' noself='yes'}
+                <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
+                {/dede:channel}
+              </ul>
+            </li>
+            {/dede:channelartlist}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,1 @@
+INSERT INTO `dede_diyforms` VALUES('1','订单','post_diyform1.htm','view_diyform1.htm','list_diyform1.htm','dede_diyform1','','1');

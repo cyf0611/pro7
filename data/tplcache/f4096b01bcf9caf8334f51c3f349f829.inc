@@ -1,0 +1,1 @@
+<a href="[field:typelink/]"><span class="icon-user"></span>淘宝店铺</a>

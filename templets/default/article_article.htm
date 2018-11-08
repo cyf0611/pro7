@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+<link rel="stylesheet" type="text/css" href="/skin/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/skin/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/skin/css/animate.min.css" />
+<link rel="stylesheet" type="text/css" href="/skin/css/owl.carousel.min.css" />
+<link rel="stylesheet" type="text/css" href="/skin/css/owl.theme.default.min.css" />
+<link rel="stylesheet" type="text/css" href="/skin/css/style.css" />
+<script type="text/javascript" src="/skin/js/jquery-1.11.1.min.js"></script>
+<script src="/skin/js/animate.min.js"></script>
+<script src="/skin/js/bootstrap.min.js"></script>
+<script src="/skin/js/owl.carousel.js"></script>
+<script src="/skin/js/common.js"></script>
+<script type="text/javascript">showNum(26,'news','add','.countnum');</script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+	<script src="/skin/js/respond.js"></script>
+<![endif]-->
+
+</head>
+<body>
+{dede:include filename="head.htm"/}
+
+<!-- 轮播图片 end--> 
+<!-- 内容展示 begin-->
+<div class="layout content_part">
+  <div class="container margin-big-top clearfix" id="fh5co-content_show">
+    <div class="rightSide">
+      <div class="title clearfix">
+        <h3>{dede:field name='typename'/}</h3>
+        <ul class="bread">
+          <li>{dede:field name='position'/}</li>
+        </ul>
+      </div>
+      <div class="show_content padding-large-bottom content_detail">
+        <div class="show_body detail">
+          <h3 class="art_title">{dede:field.title/}</h3>
+          <div class=" padding-bottom text-center qhd-title"><span><strong>来源：</strong>{dede:field.source/}</span><span><strong>作者：</strong>{dede:field.writer/}</span> <span><strong>日期：</strong>{dede:field.pubdate function="MyDate('Y-m-d',@me)"/}</span> <span><strong>浏览：</strong><font class="countnum"><script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></font></span></div>
+          <p> {dede:field.body/}</p>
+        </div>
+        
+        <!--分享begin-->
+        <div class="shares margin-big-bottom">
+          <div class="jiathis">
+            <div class="bshare-custom">
+              <div class="bsPromo bsPromo2"></div>
+              <a rel="nofollow" title="分享到QQ空间" class="bshare-qzone"></a><a rel="nofollow" title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a rel="nofollow" title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a rel="nofollow" title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div>
+            <script type="text/javascript" charset="utf-8" src="/skin/js/buttonlite.js"></script><script type="text/javascript" charset="utf-8" src="/skin/js/bsharec0.js"></script> 
+          </div>
+        </div>
+        <!--分享 end-->
+        <ul class="pager padding-big-top padding-big-bottom">
+          <li>{dede:prenext get='pre'/}</li>
+          <li>{dede:prenext get='next'/}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 内容展示 end--> 
+<!-- 底部 begin--> 
+{dede:include filename="footer.htm"/}
+</body>
+</html>

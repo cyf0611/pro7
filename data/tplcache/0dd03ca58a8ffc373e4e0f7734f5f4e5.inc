@@ -1,0 +1,1 @@
+<div class='items'><img src='[field:picname/]' /></div>
